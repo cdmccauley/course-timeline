@@ -13,45 +13,61 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col"></div>
-        <div class="col-2"><p class="mb-0">Monday</p></div>
-        <div class="col-2"><p class="mb-0">Tuesday</p></div>
-        <div class="col-2"><p class="mb-0">Wednesday</p></div>
-        <div class="col-2"><p class="mb-0">Thursday</p></div>
-        <div class="col-2"><p class="mb-0">Friday</p></div>
-        <div class="col"></div>
-      </div> <!-- row -->
+        <div class="col-md-1"></div>
+        <div class="col-md-2"><p class="mb-1">Modules</p></div>
+        <div class="col-md-9"></div>
+      </div>
       <div class="row">
-        <div class="col"></div>
-        <div class="col-2">
-          <input class="form-control form-control-sm mb-3" name="inputs" type="number" min="0" max="12" value="0" id="monIn">
-          <div class="invalid-feedback mt-0 mb-3">Value must be 0-12</div>
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+          <input class="form-control form-control-sm mb-3" id="num-modules" name="num-modules" type="number" min="0" max="31" value="0"> <!-- max val is placeholder, also referenced in feedback div below -->
+          <div class="invalid-feedback mt-0 mb-3">Value must be 0-31</div>
         </div>
-        <div class="col-2">
-          <input class="form-control form-control-sm mb-3" name="inputs" type="number" min="0" max="12" value="0" id="tueIn">
-          <div class="invalid-feedback mt-0 mb-3">Value must be 0-12</div>
-        </div>
-        <div class="col-2">
-          <input class="form-control form-control-sm mb-3" name="inputs" type="number" min="0" max="12" value="0" id="wedIn">
-          <div class="invalid-feedback mt-0 mb-3">Value must be 0-12</div>
-        </div>
-        <div class="col-2">
-          <input class="form-control form-control-sm mb-3" name="inputs" type="number" min="0" max="12" value="0" id="thuIn">
-          <div class="invalid-feedback mt-0 mb-3">Value must be 0-12</div>
-        </div>
-        <div class="col-2">
-          <input class="form-control form-control-sm mb-3" name="inputs" type="number" min="0" max="12" value="0" id="friIn">
-          <div class="invalid-feedback mt-0 mb-3">Value must be 0-12</div>
-        </div>
-        <div class="col"></div>
-      </div> <!-- row -->
+        <div class="col-md-9"></div>
+      </div>
+      <div class="row" id="module-hours">
+        <!-- dynamic columns -->
+      </div>
       <div class="row">
-          <div class="col"></div>
-          <div class="col-10">
-            <button type="button" class="btn btn-secondary btn-sm" onclick="submit()">Submit</button>
+        <div class="col-md-1"></div>
+        <div class="col-md-2"><p class="mb-1">Monday</p></div>
+        <div class="col-md-2"><p class="mb-1">Tuesday</p></div>
+        <div class="col-md-2"><p class="mb-1">Wednesday</p></div>
+        <div class="col-md-2"><p class="mb-1">Thursday</p></div>
+        <div class="col-md-2"><p class="mb-1">Friday</p></div>
+        <div class="col-md-1"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+          <input class="form-control form-control-sm mb-3" name="hour-inputs" type="number" min="0" max="12" value="0">
+          <div class="invalid-feedback mt-0 mb-3">Value must be 0-12</div>
+        </div>
+        <div class="col-md-2">
+          <input class="form-control form-control-sm mb-3" name="hour-inputs" type="number" min="0" max="12" value="0">
+          <div class="invalid-feedback mt-0 mb-3">Value must be 0-12</div>
+        </div>
+        <div class="col-md-2">
+          <input class="form-control form-control-sm mb-3" name="hour-inputs" type="number" min="0" max="12" value="0">
+          <div class="invalid-feedback mt-0 mb-3">Value must be 0-12</div>
+        </div>
+        <div class="col-md-2">
+          <input class="form-control form-control-sm mb-3" name="hour-inputs" type="number" min="0" max="12" value="0">
+          <div class="invalid-feedback mt-0 mb-3">Value must be 0-12</div>
+        </div>
+        <div class="col-md-2">
+          <input class="form-control form-control-sm mb-3" name="hour-inputs" type="number" min="0" max="12" value="0">
+          <div class="invalid-feedback mt-0 mb-3">Value must be 0-12</div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+      <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+            <button type="button" class="btn btn-secondary btn-sm" id="submit">Submit</button>
           </div>
-          <div class="col"></div>
-      </div> <!-- row -->
+          <div class="col-md-1"></div>
+      </div>
     </div>
 
 
