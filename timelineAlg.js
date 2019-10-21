@@ -27,9 +27,17 @@ function submit() {
             if(input.classList.contains('is-invalid')) {
                 input.classList.remove('is-invalid');
             };
+            if(!input.classList.contains('mb-3')) {
+                input.classList.add('mb-3');
+            };
             weekHrs.push(input.value)
         } else {
-            input.classList.add('is-invalid');
+            if(!input.classList.contains('is-invalid')) {
+                input.classList.add('is-invalid');
+            };
+            if(input.classList.contains('mb-3')) {
+                input.classList.remove('mb-3');
+            }
             weekHrs.push('0');
         };
     });
