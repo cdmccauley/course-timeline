@@ -15,62 +15,90 @@ console.log('timelineAlg.js loaded');
 */
 
 // declarations
+// constants
 const CLEAR_ARRAY = 0;
-const DEFAULT_HOURS = '0';
+const DEFAULT_VALUE = '0';
+// elements
 var modulesInput = null;
-var hourInputs = [];
+var hourInputs = null;
+var submitBtn = null;
+// data
+var modulesNumber;
 var weekHrs = [];
 
+// get elements from dom
 if(modulesInput == null) {
     modulesInput = document.getElementById('num-modules');
 }
 
-// get input elements
-if(hourInputs.length != 5) {
+if(hourInputs == null) {
+    hourInputs = [];
     document.getElementsByName('hour-inputs').forEach(element => {
         hourInputs.push(element);
     });
 };
 
-// reset variables
-function resetVars() {
-    // clear weekHrs values
-    weekHrs.length = CLEAR_ARRAY;
+if(submitBtn == null) {
+    submitBtn = document.getElementById('submit');
 }
 
-document.getElementById('num-modules').addEventListener('change', function() {
-    console.log('onchange');
+// function declarations
+// sets valid styles
+function setValidStyle(element) {
+    if(element.classList.contains('is-invalid')) {
+        element.classList.remove('is-invalid');
+    };
+    if(!element.classList.contains('mb-3')) {
+        element.classList.add('mb-3');
+    };
+}
+
+// sets invalid styles
+function setInvalidStyle(element) {
+    if(!element.classList.contains('is-invalid')) {
+        element.classList.add('is-invalid');
+    };
+    if(element.classList.contains('mb-3')) {
+        element.classList.remove('mb-3');
+    };
+}
+
+// event listeners
+// num-modules onchange listener
+modulesInput.addEventListener('change', function() {
+    if(modulesInput.value >= 0 && modulesInput.value <= 31) {
+        // input is valid
+        // set css classes
+        setValidStyle(modulesInput);
+        modulesNumber = modulesInput.value
+    } else {
+        // input is invalid
+        setInvalidStyle(modulesInput);
+        modulesNumber = DEFAULT_VALUE;
+    }
+    // !!! DEBUG !!!
+    console.log('modulesNumber:', modulesNumber);
 });
 
-// handle submit
-document.getElementById('submit').addEventListener('click', function() {
-    // reset variables
-    resetVars();
+// submit onclick listener
+submitBtn.addEventListener('click', function() {
+    // reset hours
+    weekHrs.length = CLEAR_ARRAY;
 
     // get input from each element
     hourInputs.forEach(input => {
         if(input.value >= 0 && input.value <= 12) {
             // input is valid
             // set css classes
-            if(input.classList.contains('is-invalid')) {
-                input.classList.remove('is-invalid');
-            };
-            if(!input.classList.contains('mb-3')) {
-                input.classList.add('mb-3');
-            };
+            setValidStyle(input);
             // get value
             weekHrs.push(input.value)
         } else {
-            // input was invalid
+            // input is invalid
             // set css classes
-            if(!input.classList.contains('is-invalid')) {
-                input.classList.add('is-invalid');
-            };
-            if(input.classList.contains('mb-3')) {
-                input.classList.remove('mb-3');
-            }
+            setInvalidStyle(input);
             // get default value
-            weekHrs.push(DEFAULT_HOURS);
+            weekHrs.push(DEFAULT_VALUE);
         };
     });
 
