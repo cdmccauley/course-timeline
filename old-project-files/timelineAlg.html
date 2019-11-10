@@ -1,0 +1,86 @@
+<!doctype html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-FBPbZPVh+7ks5JJ70RJmIaqyGnvMbeJ5JQfEbW0Ac6ErfvEg9yG56JQJuMNptWsH" crossorigin="anonymous">
+    <link href="timelineAlg.css" rel="stylesheet">
+    <title>Timeline</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10"><h1 class="mb-1">Module Information</h1></div>
+        <div class="col-md-1"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+          <label>Number of modules:</label>
+          <input class="form-control form-control-sm mb-3" id="num-modules" name="num-modules" type="number" min="0" max="31" value="0"> <!-- max val is placeholder, also referenced in feedback div below -->
+          <div class="invalid-feedback mt-0 mb-3">Value must be 0-31</div>
+        </div>
+        <div class="col-md-9"></div>
+      </div>
+      <div id="module-hours">
+          <!-- dynamically added hour inputs -->
+      </div>
+      <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10"><h1 class="mb-1">Schedule Information</h1></div>
+          <div class="col-md-1"></div>
+        </div>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+          <label>Monday hours</label>
+          <input class="form-control form-control-sm mb-3" name="hour-inputs" type="number" min="0" max="12" value="0">
+          <div class="invalid-feedback mt-0 mb-3">Value must be 0-12</div>
+        </div>
+        <div class="col-md-2">
+          <label>Tuesday hours</label>
+          <input class="form-control form-control-sm mb-3" name="hour-inputs" type="number" min="0" max="12" value="0">
+          <div class="invalid-feedback mt-0 mb-3">Value must be 0-12</div>
+        </div>
+        <div class="col-md-2">
+          <label>Wednesday hours</label>
+          <input class="form-control form-control-sm mb-3" name="hour-inputs" type="number" min="0" max="12" value="0">
+          <div class="invalid-feedback mt-0 mb-3">Value must be 0-12</div>
+        </div>
+        <div class="col-md-2">
+          <label>Thursday hours</label>
+          <input class="form-control form-control-sm mb-3" name="hour-inputs" type="number" min="0" max="12" value="0">
+          <div class="invalid-feedback mt-0 mb-3">Value must be 0-12</div>
+        </div>
+        <div class="col-md-2">
+          <label>Friday hours</label>
+          <input class="form-control form-control-sm mb-3" name="hour-inputs" type="number" min="0" max="12" value="0">
+          <div class="invalid-feedback mt-0 mb-3">Value must be 0-12</div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+      <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+            <button type="button" class="btn btn-secondary btn-sm" id="submit">Submit</button>
+          </div>
+          <div class="col-md-1"></div>
+      </div>
+    </div>
+
+
+
+    <!-- start scripts -->
+    <script src="timelineAlg.js"></script>
+    <!-- <script src="course-timeline.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- end scripts -->
+  </body>
+
+</html>

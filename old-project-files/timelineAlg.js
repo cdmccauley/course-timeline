@@ -47,9 +47,13 @@ if (modHrsDiv == null) {
 
 if(hourInputs == null) {
     hourInputs = [];
-    document.getElementsByName('hour-inputs').forEach(element => {
+    // array.forEach syntax error in IE
+    // document.getElementsByName('hour-inputs').forEach(element => {
+    //     hourInputs.push(element);
+    // });
+    for(element in document.getElementsByName('hour-inputs')) {
         hourInputs.push(element);
-    });
+    }
 };
 
 if(submitBtn == null) {
@@ -141,9 +145,13 @@ function getModHoursRow(inputNum) {
 
     if(colNum > MAX_COL) {
         row.appendChild(col1.cloneNode());
-        getModHoursCol(MAX_COL).forEach(element => {
+        // array.forEach syntax error in IE
+        // getModHoursCol(MAX_COL).forEach(element => {
+        //     row.appendChild(element);
+        // });
+        for(element in getModHoursCol(MAX_COL)) {
             row.appendChild(element);
-        });
+        }
         row.appendChild(col1.cloneNode());
         rows.push(row);
         colNum -= MAX_COL;
@@ -151,9 +159,14 @@ function getModHoursRow(inputNum) {
     } else {
         //row = getModHoursCol(colNum);
         row.appendChild(col1.cloneNode());
-        getModHoursCol(colNum).forEach(element => {
-            row.appendChild(element);
-        })
+        // array.forEach syntax error in IE
+        // getModHoursCol(colNum).forEach(element => {
+        //     row.appendChild(element);
+        // })
+        for(element in getModHoursCol(colNum)) {
+            // row.appendChild(element); // generating hierarchy request error in ie
+            row.innerHTML = element;
+        }
         row.appendChild(col1.cloneNode());
         rows.push(row);
     }
@@ -198,11 +211,14 @@ modulesInput.addEventListener('change', function() {
             modHrsDiv.removeChild(modHrsDiv.lastChild);
         }
         modNumCounter = 1; // temp fix for label bug
-        getModHoursRow(modulesNumber).forEach(row => {
-            modHrsDiv.appendChild(row);
-        }); // DEBUG!!!
-
-
+        // array.forEach syntax error in IE
+        // getModHoursRow(modulesNumber).forEach(row => {
+        //     modHrsDiv.appendChild(row);
+        // });
+        for(row in getModHoursRow(modulesNumber)) {
+            // modHrsDiv.appendChild(row); // generating hierarchy request error in ie
+            modHrsDiv.innerHTML = row;
+        }
     } else {
         // input is invalid
         setInvalidStyle(modulesInput);
@@ -218,7 +234,23 @@ submitBtn.addEventListener('click', function() {
     weekHrs.length = CLEAR_ARRAY;
 
     // get input from each element
-    hourInputs.forEach(input => {
+    // array.forEach syntax error in IE
+    // hourInputs.forEach(input => {
+    //     if(input.value >= 0 && input.value <= 12) {
+    //         // input is valid
+    //         // set css classes
+    //         setValidStyle(input);
+    //         // get value
+    //         weekHrs.push(input.value)
+    //     } else {
+    //         // input is invalid
+    //         // set css classes
+    //         setInvalidStyle(input);
+    //         // get default value
+    //         weekHrs.push(DEFAULT_MIN);
+    //     };
+    // });
+    for(input in hourInputs) {
         if(input.value >= 0 && input.value <= 12) {
             // input is valid
             // set css classes
@@ -232,7 +264,7 @@ submitBtn.addEventListener('click', function() {
             // get default value
             weekHrs.push(DEFAULT_MIN);
         };
-    });
+    }
 
 
 
